@@ -46,12 +46,12 @@ func fetchFromAPIFootball(w http.ResponseWriter, url string) {
 	json.NewEncoder(w).Encode(result)
 }
 
-func getNextGame(w http.ResponseWriter, r *http.Request) {
-	url := "https://api-football-v1.p.rapidapi.com/v3/fixtures?team=42&next=1"
+func (cfg *apiConfig) getNextGame(w http.ResponseWriter, r *http.Request) {
+	url := cfg.apiHost + "/fixtures?team=" + cfg.apiTeam + "&next=1"
 	fetchFromAPIFootball(w, url)
 }
 
-func getLastFiveGames(w http.ResponseWriter, r *http.Request) {
-	url := "https://api-football-v1.p.rapidapi.com/v3/fixtures?team=42&last=5"
+func (cfg *apiConfig) getLastFiveGames(w http.ResponseWriter, r *http.Request) {
+	url := cfg.apiHost + "/fixtures?team=" + cfg.apiTeam + "&last=5"
 	fetchFromAPIFootball(w, url)
 }
