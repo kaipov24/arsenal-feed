@@ -32,6 +32,10 @@ func main() {
 	}
 	r.Get("/next", apiCfg.getNextGame)
 	r.Get("/last-five", apiCfg.getLastFiveGames)
+	r.Get("/coach", apiCfg.getCoach)
+	r.Get("/team", apiCfg.getTeamInfo)
+	r.Get("/standings", apiCfg.getLeagueStandings)
+	r.Get("/transfers", apiCfg.getTransfers)
 
 	log.Println("Server running on http://localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", r))
